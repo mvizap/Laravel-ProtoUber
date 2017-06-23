@@ -18,9 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('coord_x');
-            $table->string('coord_y');
-            $table->integer('tipo');
+            $table->string('coord_x')->default("");
+            $table->string('coord_y')->default("");
+            $table->integer('tipo')->default(0);
+            $table->integer('viaje_id')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

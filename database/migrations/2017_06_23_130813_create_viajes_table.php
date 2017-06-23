@@ -16,12 +16,11 @@ class CreateViajesTable extends Migration
         Schema::create('viajes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->integer('conductor_id');
-            $table->integer('viaje_id');
-            $table->string('inicio_x');
-            $table->string('inicio_y');
-            $table->string('fin_x');
-            $table->string('fin_y');
+            $table->integer('conductor_id')->default(0);
+            $table->string('inicio_x')->default("");
+            $table->string('inicio_y')->default("");
+            $table->string('fin_x')->default("");
+            $table->string('fin_y')->default("");
             $table->timestamps();
         });
     }
