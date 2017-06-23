@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function viaje_actual()
+    {
+        return hasOne('App\Viaje');
+    }
+
+    public function viajes()
+    {
+        return hasMany('App\Viaje');
+    }
 }

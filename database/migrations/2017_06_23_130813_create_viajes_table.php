@@ -17,6 +17,7 @@ class CreateViajesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('conductor_id');
+            $table->integer('viaje_id');
             $table->string('inicio_x');
             $table->string('inicio_y');
             $table->string('fin_x');
