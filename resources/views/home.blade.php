@@ -22,25 +22,12 @@
                 <div class="panel-heading">Últimos Viajes</div>
 
                 <div class="panel-body">
-                    You are logged in!
+
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">Mapa</div>
-
-                <div class="panel-body">
-                    <div class="container">
-                      
-                    </div>
-                </div>
-            </div>
-        </div>    
-    </div>
 </div>
 @endsection
 
@@ -68,23 +55,20 @@
               lineCoordinatesPath.setMap(map);
             };
 
-       /* setInterval(function() {
+        setInterval(function() {
               
-            $.ajax({
-                url: "/GetPosiciones",
-                type: "POST",
-                dataType: "json",
-                data: {"action": "loadall", "id": id},
-                success: function(data){
-                    console.log(data);
-                },
-                error: function(error){
-                     console.log("Error:");
-                     console.log(error);
-                }
-            });
+            $.post('/EditarCarrito', {
+                _token: Laravel['csrfToken'],
+                accion: accion,
+                producto_id: producto_id,
+                cambiar: 0
+            }
+            )
+            .done(function(data) {
+                $("#alerta_compra").show();
+                $("#alerta_compra_texto").html(data);
+            })
 
-              }, 5000);*/
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAX5y7qNQ6tUANP_cI2Xtw0xw9xkQko0co&callback=initialize"></script>

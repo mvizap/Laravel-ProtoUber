@@ -13,7 +13,19 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function () {
-    //
-})->middleware('auth:api');
+Route::get('/login/{$accion}', function () {
+
+	if($accion == "login")
+	{
+		$b = array( "estado" => 1, "user" => Auth::user());
+		return json_encode($b);
+	}
+	else
+	{
+		$b = array( "estado" => 0);
+		return json_encode($b);
+	}
+
+    return Auth::user()->name;
+});
 
